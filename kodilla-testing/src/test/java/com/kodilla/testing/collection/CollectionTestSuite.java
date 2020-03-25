@@ -46,5 +46,6 @@ public class CollectionTestSuite {
         //then
         Assert.assertEquals(2, result.size());
     }
+
 }
 
