@@ -2,7 +2,7 @@ package com.kodilla.testing.shape;
 
 public class Circle implements Shape {
 
-    double radius;
+    private double radius;
 
     public Circle(double radius) {
         this.radius = radius;
@@ -25,7 +25,7 @@ public class Circle implements Shape {
     }
 
     public String getShapeName() {
-        return ("Circle");
+        return "Circle";
     }
 
     @Override
