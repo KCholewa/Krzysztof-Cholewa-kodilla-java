@@ -1,5 +1,7 @@
 package com.kodilla.testing.forum.statistics;
 import org.junit.*;
+import org.junit.jupiter.api.DisplayName;
+
 import java.util.LinkedList;
 import java.util.List;
 import static org.mockito.Mockito.mock;
@@ -29,225 +31,178 @@ public class CalculateStatsTestCase {
         System.out.println("Test #" + testCounter+ " finished");
     }
 
-    //Test#1 which tests all averages when number of posts equals to zero;
-    @Test
-    public void testCalculateAdvStatistics1() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNameMock = new LinkedList<String>();
-        for (int i = 0; i<100; i++) {
+    public List<String> userNameMockListCreator(int n) {
+        List<String> usersNameMock = new LinkedList<>();
+        for (int i = 0; i<n; i++) {
             usersNameMock.add("n");
         }
+        return usersNameMock;
+    }
 
+    @Test
+    @DisplayName("Test#1 which tests all averages when number of posts equals to zero")
+    public void testCalculateAdvStatistics1() {
+
+        //Given
+        Statistics statisticsMock = mock(Statistics.class);
+        List<String> usersNameMock = userNameMockListCreator(100);
         when(statisticsMock.usersNames()).thenReturn(usersNameMock);
         when(statisticsMock.postsCount()).thenReturn(0);
         when(statisticsMock.commentsCount()).thenReturn(100);
-
         CalculateStats calculateStats = new CalculateStats(statisticsMock);
 
         //When
         calculateStats.calculateAdvStatistics(statisticsMock);
-        Double postCommentsAverage = calculateStats.getPostCommentsAverage();
-        Double postCommentsAverageExpected = 0.0;
-        Double userCommentsAverage =  calculateStats.getUserCommentsAverage();
-        Double userCommentsAverageExpected = 1.0;
-        Double userPostsAverage = calculateStats.getUserPostsAverage();
-        Double userPostsAverageExpected = 0.0;
+        double postCommentsAverage = calculateStats.getPostCommentsAverage();
+        double userCommentsAverage =  calculateStats.getUserCommentsAverage();
+        double userPostsAverage = calculateStats.getUserPostsAverage();
 
         //then
-        Assert.assertEquals(postCommentsAverageExpected, postCommentsAverage);
-        Assert.assertEquals(userCommentsAverageExpected, userCommentsAverage);
-        Assert.assertEquals(userPostsAverageExpected, userPostsAverage);
-
-
+        Assert.assertEquals(0.0, postCommentsAverage, 0.001);
+        Assert.assertEquals(1.0, userCommentsAverage, 0.001);
+        Assert.assertEquals(0.0, userPostsAverage, 0.001);
     }
 
-    //Test#2 which tests all averages when number of posts equals to 1000;
+
+
     @Test
+    @DisplayName("Test#2 which tests all averages when number of posts equals to 1000")
     public void testCalculateAdvStatistics2() {
+
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNameMock = new LinkedList<String>();
-        for (int i = 0; i<100; i++) {
-            usersNameMock.add("n");
-        }
-
+        List<String> usersNameMock = userNameMockListCreator(100);
         when(statisticsMock.usersNames()).thenReturn(usersNameMock);
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(100);
-
         CalculateStats calculateStats = new CalculateStats(statisticsMock);
 
         //When
         calculateStats.calculateAdvStatistics(statisticsMock);
-        Double postCommentsAverage = calculateStats.getPostCommentsAverage();
-        Double postCommentsAverageExpected = 0.1;
-        Double userCommentsAverage =  calculateStats.getUserCommentsAverage();
-        Double userCommentsAverageExpected = 1.0;
-        Double userPostsAverage = calculateStats.getUserPostsAverage();
-        Double userPostsAverageExpected = 10.0;
+        double postCommentsAverage = calculateStats.getPostCommentsAverage();
+        double userCommentsAverage =  calculateStats.getUserCommentsAverage();
+        double userPostsAverage = calculateStats.getUserPostsAverage();
 
         //then
-        Assert.assertEquals(postCommentsAverageExpected, postCommentsAverage);
-        Assert.assertEquals(userCommentsAverageExpected, userCommentsAverage);
-        Assert.assertEquals(userPostsAverageExpected, userPostsAverage);
+        Assert.assertEquals(0.1, postCommentsAverage, 0.001);
+        Assert.assertEquals(1.0, userCommentsAverage, 0.001);
+        Assert.assertEquals(10.0, userPostsAverage, 0.001);
 
     }
 
-    //Test#3 which tests all averages when number of comments equals to 0;
     @Test
+    @DisplayName("Test#3 which tests all averages when number of comments equals to 0")
     public void testCalculateAdvStatistics3() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNameMock = new LinkedList<String>();
-        for (int i = 0; i<100; i++) {
-            usersNameMock.add("n");
-        }
-
+        List<String> usersNameMock = userNameMockListCreator(100);
         when(statisticsMock.usersNames()).thenReturn(usersNameMock);
         when(statisticsMock.postsCount()).thenReturn(100);
         when(statisticsMock.commentsCount()).thenReturn(0);
-
         CalculateStats calculateStats = new CalculateStats(statisticsMock);
 
         //When
         calculateStats.calculateAdvStatistics(statisticsMock);
-        Double postCommentsAverage = calculateStats.getPostCommentsAverage();
-        Double postCommentsAverageExpected = 0.0;
-        Double userCommentsAverage =  calculateStats.getUserCommentsAverage();
-        Double userCommentsAverageExpected = 0.0;
-        Double userPostsAverage = calculateStats.getUserPostsAverage();
-        Double userPostsAverageExpected = 1.0;
+        double postCommentsAverage = calculateStats.getPostCommentsAverage();
+        double userCommentsAverage =  calculateStats.getUserCommentsAverage();
+        double userPostsAverage = calculateStats.getUserPostsAverage();
 
         //then
-        Assert.assertEquals(postCommentsAverageExpected, postCommentsAverage);
-        Assert.assertEquals(userCommentsAverageExpected, userCommentsAverage);
-        Assert.assertEquals(userPostsAverageExpected, userPostsAverage);
-
+        Assert.assertEquals(0.0, postCommentsAverage, 0.001);
+        Assert.assertEquals(0.0, userCommentsAverage, 0.001);
+        Assert.assertEquals(1.0, userPostsAverage, 0.001);
     }
 
-    //Test#4 which tests all averages when number of comments is smaller than number of posts
     @Test
+    @DisplayName("Test#4 which tests all averages when number of comments is smaller than number of posts")
     public void testCalculateAdvStatistics4() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNameMock = new LinkedList<String>();
-        for (int i = 0; i<100; i++) {
-            usersNameMock.add("n");
-        }
-
+        List<String> usersNameMock = userNameMockListCreator(100);
         when(statisticsMock.usersNames()).thenReturn(usersNameMock);
         when(statisticsMock.postsCount()).thenReturn(100);
         when(statisticsMock.commentsCount()).thenReturn(50);
-
         CalculateStats calculateStats = new CalculateStats(statisticsMock);
 
         //When
         calculateStats.calculateAdvStatistics(statisticsMock);
-        Double postCommentsAverage = calculateStats.getPostCommentsAverage();
-        Double postCommentsAverageExpected = 0.5;
-        Double userCommentsAverage =  calculateStats.getUserCommentsAverage();
-        Double userCommentsAverageExpected = 0.5;
-        Double userPostsAverage = calculateStats.getUserPostsAverage();
-        Double userPostsAverageExpected = 1.0;
+        double postCommentsAverage = calculateStats.getPostCommentsAverage();
+        double userCommentsAverage =  calculateStats.getUserCommentsAverage();
+        double userPostsAverage = calculateStats.getUserPostsAverage();
 
         //then
-        Assert.assertEquals(postCommentsAverageExpected, postCommentsAverage);
-        Assert.assertEquals(userCommentsAverageExpected, userCommentsAverage);
-        Assert.assertEquals(userPostsAverageExpected, userPostsAverage);
-
+        Assert.assertEquals(0.5, postCommentsAverage, 0.001);
+        Assert.assertEquals(0.5, userCommentsAverage, 0.001);
+        Assert.assertEquals(1.0, userPostsAverage, 0.001);
     }
 
-    //Test#5 which tests all averages when number of comments is bigger than number of posts
     @Test
+    @DisplayName("Test#5 which tests all averages when number of comments is bigger than number of posts")
     public void testCalculateAdvStatistics5() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNameMock = new LinkedList<String>();
-        for (int i = 0; i<100; i++) {
-            usersNameMock.add("n");
-        }
-
+        List<String> usersNameMock = userNameMockListCreator(100);
         when(statisticsMock.usersNames()).thenReturn(usersNameMock);
         when(statisticsMock.postsCount()).thenReturn(50);
         when(statisticsMock.commentsCount()).thenReturn(100);
-
         CalculateStats calculateStats = new CalculateStats(statisticsMock);
 
         //When
         calculateStats.calculateAdvStatistics(statisticsMock);
-        Double postCommentsAverage = calculateStats.getPostCommentsAverage();
-        Double postCommentsAverageExpected = 2.0;
-        Double userCommentsAverage =  calculateStats.getUserCommentsAverage();
-        Double userCommentsAverageExpected = 1.0;
-        Double userPostsAverage = calculateStats.getUserPostsAverage();
-        Double userPostsAverageExpected = 0.5;
+        double postCommentsAverage = calculateStats.getPostCommentsAverage();
+        double userCommentsAverage =  calculateStats.getUserCommentsAverage();
+        double userPostsAverage = calculateStats.getUserPostsAverage();
 
         //then
-        Assert.assertEquals(postCommentsAverageExpected, postCommentsAverage);
-        Assert.assertEquals(userCommentsAverageExpected, userCommentsAverage);
-        Assert.assertEquals(userPostsAverageExpected, userPostsAverage);
-
+        Assert.assertEquals(2.0, postCommentsAverage, 0.001);
+        Assert.assertEquals(1.0, userCommentsAverage, 0.001);
+        Assert.assertEquals(0.5, userPostsAverage, 0.001);
     }
 
-    //Test#6 which tests all averages when number of users equals to 0;
     @Test
+    @DisplayName("Test#6 which tests all averages when number of users equals to 0")
     public void testCalculateAdvStatistics6() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNameMock = new LinkedList<String>();
-
+        List<String> usersNameMock = userNameMockListCreator(0);
         when(statisticsMock.usersNames()).thenReturn(usersNameMock);
         when(statisticsMock.postsCount()).thenReturn(100);
         when(statisticsMock.commentsCount()).thenReturn(100);
-
         CalculateStats calculateStats = new CalculateStats(statisticsMock);
 
         //When
         calculateStats.calculateAdvStatistics(statisticsMock);
-        Double postCommentsAverage = calculateStats.getPostCommentsAverage();
-        Double postCommentsAverageExpected = 1.0;
-        Double userCommentsAverage =  calculateStats.getUserCommentsAverage();
-        Double userCommentsAverageExpected = 0.0;
-        Double userPostsAverage = calculateStats.getUserPostsAverage();
-        Double userPostsAverageExpected = 0.0;
+        double postCommentsAverage = calculateStats.getPostCommentsAverage();
+        double userCommentsAverage =  calculateStats.getUserCommentsAverage();
+        double userPostsAverage = calculateStats.getUserPostsAverage();
 
         //then
-        Assert.assertEquals(postCommentsAverageExpected, postCommentsAverage);
-        Assert.assertEquals(userCommentsAverageExpected, userCommentsAverage);
-        Assert.assertEquals(userPostsAverageExpected, userPostsAverage);
+        Assert.assertEquals(1.0, postCommentsAverage, 0.001);
+        Assert.assertEquals(0.0, userCommentsAverage, 0.001);
+        Assert.assertEquals(0.0, userPostsAverage, 0.001);
 
     }
 
-    //Test#3 which tests all averages when number of users equals to 100;
     @Test
+    @DisplayName("Test#7 which tests all averages when number of users equals to 100")
     public void testCalculateAdvStatistics7() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNameMock = new LinkedList<String>();
-        for (int i = 0; i<100; i++) {
-            usersNameMock.add("n");
-        }
-
+        List<String> usersNameMock = userNameMockListCreator(100);
         when(statisticsMock.usersNames()).thenReturn(usersNameMock);
         when(statisticsMock.postsCount()).thenReturn(100);
         when(statisticsMock.commentsCount()).thenReturn(100);
-
         CalculateStats calculateStats = new CalculateStats(statisticsMock);
 
         //When
         calculateStats.calculateAdvStatistics(statisticsMock);
-        Double postCommentsAverage = calculateStats.getPostCommentsAverage();
-        Double postCommentsAverageExpected = 1.0;
-        Double userCommentsAverage =  calculateStats.getUserCommentsAverage();
-        Double userCommentsAverageExpected = 1.0;
-        Double userPostsAverage = calculateStats.getUserPostsAverage();
-        Double userPostsAverageExpected = 1.0;
+        double postCommentsAverage = calculateStats.getPostCommentsAverage();
+        double userCommentsAverage =  calculateStats.getUserCommentsAverage();
+        double userPostsAverage = calculateStats.getUserPostsAverage();
 
         //then
-        Assert.assertEquals(postCommentsAverageExpected, postCommentsAverage);
-        Assert.assertEquals(userCommentsAverageExpected, userCommentsAverage);
-        Assert.assertEquals(userPostsAverageExpected, userPostsAverage);
-
+        Assert.assertEquals(1.0, postCommentsAverage, 0.001);
+        Assert.assertEquals(1.0, userCommentsAverage, 0.001);
+        Assert.assertEquals(1.0, userPostsAverage, 0.001);
     }
 }

@@ -50,19 +50,15 @@ public class CalculateStats {
         postsQty = statistics.postsCount();
         commentsQty = statistics.commentsCount();
 
-        if((postsQty == 0) || (usersQty == 0)) {
+        if(usersQty == 0) {
             userPostsAverage = 0;
-        } else {
-            userPostsAverage = postsQty/usersQty;
-        }
-
-        if((commentsQty == 0) || (usersQty == 0)) {
             userCommentsAverage = 0;
         } else {
+            userPostsAverage = postsQty/usersQty;
             userCommentsAverage = commentsQty / usersQty;
         }
 
-        if((postsQty == 0) || (commentsQty == 0)) {
+        if(postsQty == 0) {
             postCommentsAverage = 0;
         } else {
             postCommentsAverage = commentsQty/postsQty;
