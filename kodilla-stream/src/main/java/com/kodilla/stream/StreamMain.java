@@ -32,13 +32,13 @@ public class StreamMain {
             return stars + text +stars;
         };
 
-            poemBeautifier.beautify("W Szczebrzeszynie Chrząszcz brzmi w trzcinie", toUpper);
-            System.out.println();
-            poemBeautifier.beautify("W Szczebrzeszynie Chrząszcz brzmi w trzcinie", abcAdd);
-            System.out.println();
-            poemBeautifier.beautify("W Szczebrzeszynie Chrząszcz brzmi w trzcinie", starsBetweenLetters);
-            System.out.println();
-            poemBeautifier.beautify("W Szczebrzeszynie Chrząszcz brzmi w trzcinie", starsAroundLetters);
+        poemBeautifier.beautify("W Szczebrzeszynie Chrząszcz brzmi w trzcinie", toUpper);
+        System.out.println();
+        poemBeautifier.beautify("W Szczebrzeszynie Chrząszcz brzmi w trzcinie", abcAdd);
+        System.out.println();
+        poemBeautifier.beautify("W Szczebrzeszynie Chrząszcz brzmi w trzcinie", starsBetweenLetters);
+        System.out.println();
+        poemBeautifier.beautify("W Szczebrzeszynie Chrząszcz brzmi w trzcinie", starsAroundLetters);
 
     }
 }
