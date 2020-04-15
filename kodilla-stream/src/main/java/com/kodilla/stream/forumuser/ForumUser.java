@@ -12,7 +12,7 @@ public final class ForumUser {
     public ForumUser(final int userId, final String username, final char sex, final LocalDate dateOfBirth, final int postQty) {
         this.userId = userId;
         this.username = username;
-        this.sex = sex;
+        this.sex = sex == 'M'?'M':'F';//enum
         this.dateOfBirth = dateOfBirth;
         this.postQty = postQty;
     }
@@ -48,12 +48,12 @@ public final class ForumUser {
                 '}';
     }
 
-    public boolean ageVerification() {
+    public boolean isProperAge(int properAge) {
         LocalDate today = LocalDate.now();
         LocalDate birthday = getDateOfBirth();
         Period p = Period.between(birthday, today);
         int age = p.getYears();
-        if (age >= 20) {
+        if (age >= properAge) {
             return true;
         } else {
             return false;
