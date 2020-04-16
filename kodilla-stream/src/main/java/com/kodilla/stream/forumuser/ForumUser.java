@@ -1,6 +1,7 @@
 package com.kodilla.stream.forumuser;;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 
 public final class ForumUser {
     private final int userId;
@@ -12,7 +13,7 @@ public final class ForumUser {
     public ForumUser(final int userId, final String username, final char sex, final LocalDate dateOfBirth, final int postQty) {
         this.userId = userId;
         this.username = username;
-        this.sex = sex == 'M'?'M':'F';//enum
+        this.sex = sex == 'M'?'M':'F';
         this.dateOfBirth = dateOfBirth;
         this.postQty = postQty;
     }
@@ -48,11 +49,10 @@ public final class ForumUser {
                 '}';
     }
 
-    public boolean isProperAge(int properAge) {
+    public boolean isOlderThenOrEqualTo(int properAge) {
         LocalDate today = LocalDate.now();
         LocalDate birthday = getDateOfBirth();
-        Period p = Period.between(birthday, today);
-        int age = p.getYears();
+        long age = ChronoUnit.YEARS.between(birthday, today);
         if (age >= properAge) {
             return true;
         } else {
