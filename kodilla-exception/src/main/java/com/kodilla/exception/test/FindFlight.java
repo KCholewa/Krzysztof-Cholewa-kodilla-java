@@ -5,7 +5,7 @@ import java.util.Map;
 public class FindFlight {
 
 
-    HashMap<String, Boolean> flights = new HashMap<>();
+    private HashMap<String, Boolean> flights = new HashMap<>();
 
     public FindFlight() {
         flights.put("Paris", true);
@@ -21,17 +21,13 @@ public class FindFlight {
             boolean isContainArrivalAirport = flights.containsKey(arrivalAirport);
             boolean isContainDepartureAirport = flights.containsKey(departureAirport);
 
-            String message;
-
             if (isContainArrivalAirport && isContainDepartureAirport) {
                 if (flights.get(arrivalAirport) && flights.get(departureAirport)) {
                     System.out.println("You can book ticket from " + departureAirport + " to " + arrivalAirport);
                 }
-            }
 
-            if (isContainArrivalAirport && isContainDepartureAirport) {
                 if (!(flights.get(arrivalAirport)) || !(flights.get(departureAirport))) {
-                    System.out.println("Flight from "+departureAirport+" to "+arrivalAirport+" is not available");
+                    System.out.println("Flight from " + departureAirport + " to " + arrivalAirport + " is not available");
                 }
             }
 
