@@ -29,9 +29,7 @@ public class FindFlight {
                 if (!(flights.get(arrivalAirport)) || !(flights.get(departureAirport))) {
                     System.out.println("Flight from " + departureAirport + " to " + arrivalAirport + " is not available");
                 }
-            }
-
-            if (!isContainArrivalAirport || !isContainDepartureAirport) {
+            } else {
                     throw new RouteNotFoundException("There no this airport in database");
                 }
             }
