@@ -25,14 +25,13 @@ public class FindFlight {
                 if (flights.get(arrivalAirport) && flights.get(departureAirport)) {
                     System.out.println("You can book ticket from " + departureAirport + " to " + arrivalAirport);
                 }
-
                 if (!(flights.get(arrivalAirport)) || !(flights.get(departureAirport))) {
                     System.out.println("Flight from " + departureAirport + " to " + arrivalAirport + " is not available");
                 }
             } else {
-                    throw new RouteNotFoundException("There no this airport in database");
-                }
+                throw new RouteNotFoundException("There no this airport in database");
             }
+    }
 
 
 
