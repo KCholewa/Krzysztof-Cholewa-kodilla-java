@@ -32,4 +32,5 @@ public final class User {
         User user = (User) o;
         return username.equals(user.username);
     }
+
 }

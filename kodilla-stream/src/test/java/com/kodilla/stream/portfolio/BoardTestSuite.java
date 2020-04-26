@@ -156,4 +156,5 @@ public class BoardTestSuite {
         Assert.assertEquals(10.0, tasksAverage, 0.001);
     }
 
+
 }

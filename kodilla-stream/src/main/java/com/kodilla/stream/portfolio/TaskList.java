@@ -42,4 +42,5 @@ public final class TaskList {
         TaskList taskList = (TaskList) o;
         return name.equals(taskList.name);
     }
+
 }
