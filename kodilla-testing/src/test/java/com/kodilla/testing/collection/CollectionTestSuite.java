@@ -11,7 +11,6 @@ public class CollectionTestSuite {
     public void before(){
         System.out.println("Test rozpoczęty");
         exterminator = new OddNumbersExterminator();
-
     }
 
     @After
