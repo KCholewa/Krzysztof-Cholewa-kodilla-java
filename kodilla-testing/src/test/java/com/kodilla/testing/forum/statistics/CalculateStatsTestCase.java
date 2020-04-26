@@ -1,6 +1,6 @@
 package com.kodilla.testing.forum.statistics;
 import org.junit.*;
-import org.junit.jupiter.api.DisplayName;
+
 
 import java.util.LinkedList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class CalculateStatsTestCase {
     }
 
     @Test
-    @DisplayName("Test#1 which tests all averages when number of posts equals to zero")
+
     public void testCalculateAdvStatistics1() {
 
         //Given
@@ -66,7 +66,7 @@ public class CalculateStatsTestCase {
 
 
     @Test
-    @DisplayName("Test#2 which tests all averages when number of posts equals to 1000")
+
     public void testCalculateAdvStatistics2() {
 
         //Given
@@ -91,7 +91,7 @@ public class CalculateStatsTestCase {
     }
 
     @Test
-    @DisplayName("Test#3 which tests all averages when number of comments equals to 0")
+
     public void testCalculateAdvStatistics3() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
@@ -114,7 +114,7 @@ public class CalculateStatsTestCase {
     }
 
     @Test
-    @DisplayName("Test#4 which tests all averages when number of comments is smaller than number of posts")
+
     public void testCalculateAdvStatistics4() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
@@ -137,7 +137,7 @@ public class CalculateStatsTestCase {
     }
 
     @Test
-    @DisplayName("Test#5 which tests all averages when number of comments is bigger than number of posts")
+
     public void testCalculateAdvStatistics5() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
@@ -160,7 +160,7 @@ public class CalculateStatsTestCase {
     }
 
     @Test
-    @DisplayName("Test#6 which tests all averages when number of users equals to 0")
+
     public void testCalculateAdvStatistics6() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
@@ -184,7 +184,7 @@ public class CalculateStatsTestCase {
     }
 
     @Test
-    @DisplayName("Test#7 which tests all averages when number of users equals to 100")
+
     public void testCalculateAdvStatistics7() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
