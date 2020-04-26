@@ -1,6 +1,5 @@
 package com.kodilla.exception.test;
 import java.util.HashMap;
-import java.util.Map;
 
 public class FindFlight {
 
@@ -24,8 +23,7 @@ public class FindFlight {
             if (isContainArrivalAirport && isContainDepartureAirport) {
                 if (flights.get(arrivalAirport) && flights.get(departureAirport)) {
                     System.out.println("You can book ticket from " + departureAirport + " to " + arrivalAirport);
-                }
-                if (!(flights.get(arrivalAirport)) || !(flights.get(departureAirport))) {
+                } else {
                     System.out.println("Flight from " + departureAirport + " to " + arrivalAirport + " is not available");
                 }
             } else {
