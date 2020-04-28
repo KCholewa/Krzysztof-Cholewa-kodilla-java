@@ -33,7 +33,7 @@ public class MovieStore {
 
     String booksTitles = getMovies().entrySet().stream()
             .flatMap(book -> book.getValue().stream())
-            .collect(Collectors.joining("!","",""));
+            .collect(Collectors.joining("!"));
 
 
     public static void main(String[] args) {
