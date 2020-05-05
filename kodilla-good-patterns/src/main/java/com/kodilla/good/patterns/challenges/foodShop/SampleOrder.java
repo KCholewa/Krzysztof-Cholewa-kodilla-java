@@ -13,4 +13,5 @@ public class SampleOrder {
 
         return new OrderRequest(user, product, qty, localDate);
     }
+
 }
