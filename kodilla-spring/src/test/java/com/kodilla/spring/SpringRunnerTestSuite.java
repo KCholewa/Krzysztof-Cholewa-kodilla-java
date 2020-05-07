@@ -30,6 +30,7 @@ public class SpringRunnerTestSuite {
 
     @Test
     public void testTriangleLoadedIntoContainer() {
+
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
