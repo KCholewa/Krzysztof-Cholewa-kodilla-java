@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //to jest komentarz master
+
 public class KodillaCourseApplication {
 
     public static void main(String[] args) {
