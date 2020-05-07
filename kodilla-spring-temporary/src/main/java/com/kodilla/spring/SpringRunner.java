@@ -1,15 +1,15 @@
-package com.kodilla;
-
+package com.kodilla.spring;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//to jest komentarz master
 
-public class KodillaCourseApplication {
+public class SpringRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(KodillaCourseApplication.class, args);
+        SpringApplication.run(SpringRunner.class, args);
     }
-
 }
+
+
+
