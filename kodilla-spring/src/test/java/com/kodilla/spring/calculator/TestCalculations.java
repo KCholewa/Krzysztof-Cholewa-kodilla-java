@@ -10,8 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-
-public class testCalculations {
+public class TestCalculations {
 
     @Test
     public void testCalculatorFunctions() {
