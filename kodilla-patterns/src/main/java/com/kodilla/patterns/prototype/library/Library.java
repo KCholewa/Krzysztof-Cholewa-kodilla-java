@@ -22,7 +22,7 @@ public final class Library extends Prototype {
 
     @Override
     public String toString() {
-        return "books=" + books;
+        return "books: " + books;
     }
 
     public Library shallowCopy() throws CloneNotSupportedException {
@@ -33,8 +33,8 @@ public final class Library extends Prototype {
         Library clonedBoard = (Library) super.clone();
         clonedBoard.books = new HashSet<>();
         for( Book book : books) {
-            Book clonedList = new Book(book.getTitle(), book.getAuthor(), book.getPublicationDate());
-            clonedBoard.getBooks().add(clonedList);
+            Book clonedBook = new Book(book.getTitle(), book.getAuthor(), book.getPublicationDate());
+            clonedBoard.getBooks().add(clonedBook);
         }
         return clonedBoard;
     }
