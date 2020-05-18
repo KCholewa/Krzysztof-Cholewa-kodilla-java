@@ -8,17 +8,22 @@ public class TaskFactoryTestSuite {
     public void testMakeTask() {
         //Given
         TaskFactory taskFactory = new TaskFactory();
+
         //When
         Task driving = taskFactory.makeTask("driving");
+        driving.executeTask();
         Task painting = taskFactory.makeTask("painting");
+        painting.executeTask();
         Task shopping = taskFactory.makeTask("shopping");
+        shopping.executeTask();
         Task nullTask = taskFactory.makeTask(" ");
+
         //Then
-        Assert.assertEquals("driving", driving.getTaskName());;
+        Assert.assertEquals("drive", driving.getTaskName());;
         Assert.assertTrue(driving.isTaskExecuted());
-        Assert.assertEquals("painting", painting.getTaskName());;
+        Assert.assertEquals("paint", painting.getTaskName());;
         Assert.assertTrue(painting.isTaskExecuted());
-        Assert.assertEquals("buy", shopping.getTaskName());;
+        Assert.assertEquals("buy", shopping.getTaskName());
         Assert.assertTrue(shopping.isTaskExecuted());
         Assert.assertEquals(null, nullTask);
     }

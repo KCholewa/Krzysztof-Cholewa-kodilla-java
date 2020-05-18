@@ -16,20 +16,12 @@ public class ShoppingTask implements Task {
     @Override
     public void executeTask() {
         isTaskExecuted = true;
-        System.out.println("Executing: ");
+        System.out.println("Executing: "+taskName+" "+quantity+" "+whatToBuy);
     }
 
     @Override
     public String getTaskName() {
         return taskName;
-    }
-
-    public String getWhatToBuy() {
-        return whatToBuy;
-    }
-
-    public double getQuantity() {
-        return quantity;
     }
 
     @Override

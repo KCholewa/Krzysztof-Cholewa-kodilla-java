@@ -9,21 +9,15 @@ public class TaskFactory {
     public final Task makeTask(final String taskClass) {
         switch (taskClass) {
             case driving: {
-                DrivingTask drivingTask = new DrivingTask("driving", "shop", "car");
-                drivingTask.executeTask();
-                System.out.println(drivingTask.getTaskName() + " to " + drivingTask.getWhere() + " using " + drivingTask.getUsing());
+                DrivingTask drivingTask = new DrivingTask("drive", "shop", "car");
                 return drivingTask;
             }
             case painting: {
-                PaintingTask paintingTask = new PaintingTask("painting", "blue", "wall");
-                paintingTask.executeTask();
-                System.out.println(paintingTask.getTaskName() + " " + paintingTask.getColor() + " " + paintingTask.getWhatToPaint());
+                PaintingTask paintingTask = new PaintingTask("paint", "blue", "wall");
                 return paintingTask;
             }
             case shopping: {
                 ShoppingTask shoppingTask = new ShoppingTask("buy", "bread", 1.0);
-                shoppingTask.executeTask();
-                System.out.println(shoppingTask.getTaskName() +" " + shoppingTask.getQuantity() + " "+ shoppingTask.getWhatToBuy());
                 return shoppingTask;
             }
             default:

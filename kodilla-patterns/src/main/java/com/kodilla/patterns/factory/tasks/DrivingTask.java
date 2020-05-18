@@ -16,20 +16,12 @@ public class DrivingTask implements Task {
     @Override
     public void executeTask() {
         isTaskExecuted = true;
-        System.out.println("Executing: ");
+        System.out.println("Executing: "+taskName+" to "+where+" by "+using);
     }
 
     @Override
     public String getTaskName() {
         return taskName;
-    }
-
-    public String getWhere() {
-        return where;
-    }
-
-    public String getUsing() {
-        return using;
     }
 
     @Override

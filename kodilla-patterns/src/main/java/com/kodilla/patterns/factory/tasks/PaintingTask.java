@@ -16,20 +16,12 @@ public class PaintingTask implements Task {
     @Override
     public void executeTask() {
         isTaskExecuted = true;
-        System.out.println("Executing: ");
+        System.out.println("Executing: "+taskName+" "+color+" "+whatToPaint);
     }
 
     @Override
     public String getTaskName() {
         return taskName;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public String getWhatToPaint() {
-        return whatToPaint;
     }
 
     @Override
