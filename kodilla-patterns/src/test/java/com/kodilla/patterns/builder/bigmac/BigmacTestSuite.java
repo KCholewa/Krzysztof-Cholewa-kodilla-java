@@ -34,22 +34,14 @@ public class BigmacTestSuite {
 
     }
 
-    @Test
-     public void testExeptions() {
+    @Test(expected = IllegalStateException.class)
+    public void testExeptions() {
         //Given & When
-        boolean thrown = false;
-        try {
-            Bigmac bigmac = new Bigmac.BurgerBuilder()
-                    .bun("with sesame")
-                    .burgers(2)
-                    .sauce("barbecue")
-                    .indigrents("tomatoes")
-                    .build();
-        } catch (IllegalStateException e) {
-            thrown = true;
-        }
-
-        //Then
-        Assert.assertTrue(thrown);
+        Bigmac bigmac = new Bigmac.BurgerBuilder()
+                .bun("with sesame")
+                .burgers(2)
+                .sauce("barbecue")
+                .indigrents("tomatoes")
+                .build();
     }
 }
