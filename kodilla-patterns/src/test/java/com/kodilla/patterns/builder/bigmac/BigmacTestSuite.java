@@ -37,11 +37,13 @@ public class BigmacTestSuite {
     @Test(expected = IllegalStateException.class)
     public void testExeptions() {
         //Given & When
-            Bigmac bigmac = new Bigmac.BurgerBuilder()
-                    .bun("with sesame")
-                    .burgers(2)
-                    .sauce("barbecue")
-                    .indigrents("tomatoes")
-                    .build();
+
+        Bigmac bigmac = new Bigmac.BurgerBuilder()
+                .bun("with sesame")
+                .burgers(2)
+                .sauce("barbecue")
+                .indigrents("tomatoes")
+                .build();
     }
 }
+
