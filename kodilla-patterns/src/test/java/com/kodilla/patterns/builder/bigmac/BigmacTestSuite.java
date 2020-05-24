@@ -37,6 +37,7 @@ public class BigmacTestSuite {
     @Test(expected = IllegalStateException.class)
     public void testExeptions() {
         //Given & When
+
         Bigmac bigmac = new Bigmac.BurgerBuilder()
                 .bun("with sesame")
                 .burgers(2)
@@ -45,3 +46,4 @@ public class BigmacTestSuite {
                 .build();
     }
 }
+
