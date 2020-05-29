@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "INVOICES")
 public class Invoice {
     private int id;
     private String number;
@@ -22,13 +21,11 @@ public class Invoice {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "INVOICE_ID", unique = true)
     public int getId() {
         return id;
     }
 
     @NotNull
-    @Column(name = "INVOICE_NUMBER")
     public String getNumber() {
         return number;
     }
