@@ -5,7 +5,6 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "ITEMS")
 public class Item {
     private int id;
     private Product product;
@@ -28,7 +27,6 @@ public class Item {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ITEM_ID", unique = true)
     public int getId() {
         return id;
     }
@@ -40,25 +38,21 @@ public class Item {
     }
 
     @NotNull
-    @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
     }
 
     @NotNull
-    @Column(name = "QTY")
     public int getQuantity() {
         return quantity;
     }
 
     @NotNull
-    @Column(name = "VALUE")
     public BigDecimal getValue() {
         return value;
     }
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
     }
