@@ -18,4 +18,5 @@ public abstract class AbstractTaxiOrderDecorator implements TaxiOrder {
     public String getDescription() {
         return taxiOrder.getDescription();
     }
+
 }

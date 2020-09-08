@@ -13,5 +13,4 @@ public class BasicTaxiOrder implements TaxiOrder {
     public String getDescription() {
         return "Drive a course";
     }
-
 }
