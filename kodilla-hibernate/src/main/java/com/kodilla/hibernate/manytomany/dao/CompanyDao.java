@@ -13,4 +13,7 @@ import java.util.List;
 public interface CompanyDao extends CrudRepository<Company, Integer> {
     @Query(nativeQuery = true)
     List<Company> getComapanyNameWhereFristThreeLettersAre(@Param("SUBSTRING") String nameStartsAt);
+
+    @Query
+    List<Company> getCompanyWherePartOfNameIs(@Param("ARG") String partOfCompanyName);
 }
