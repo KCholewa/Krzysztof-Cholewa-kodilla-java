@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
 
+import static org.junit.Assert.assertTrue;
+
 public class CrudAppTestSuite {
     private static final String BASE_URL = "https://kcholewa.github.io/";
     private WebDriver driver;
@@ -66,6 +68,8 @@ public class CrudAppTestSuite {
                     buttonCreateCard.click();
                 });
         Thread.sleep(4000);
+
+
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
@@ -120,7 +124,7 @@ public class CrudAppTestSuite {
     public void shouldCreateTrelloCard() throws InterruptedException {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
-       // assertTrue(checkTaskExistsInTrello(taskName));
+        assertTrue(checkTaskExistsInTrello(taskName));
         deleteTestTask(taskName);
     }
 
