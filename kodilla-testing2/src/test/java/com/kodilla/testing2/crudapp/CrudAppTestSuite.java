@@ -10,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
-
 import static org.junit.Assert.assertTrue;
 
 public class CrudAppTestSuite {
