@@ -100,6 +100,7 @@ public class CrudAppTestSuite {
                 .anyMatch(theSpan -> theSpan.getText().equals(taskName));
 
         return result;
+
     }
 
     private void deleteTestTask(String taskName) throws InterruptedException {
