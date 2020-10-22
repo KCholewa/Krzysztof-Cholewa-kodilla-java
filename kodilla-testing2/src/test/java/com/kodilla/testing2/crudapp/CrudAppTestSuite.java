@@ -67,10 +67,7 @@ public class CrudAppTestSuite {
                     WebElement buttonCreateCard = theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
                     buttonCreateCard.click();
                 });
-        Thread.sleep(4000);
 
-
-    }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
         final String TRELLO_URL = "https://trello.com/login";
@@ -91,10 +88,6 @@ public class CrudAppTestSuite {
         Thread.sleep(4000);
 
         driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
-                .filter(aHref -> aHref.findElements(By.xpath(".//div[@title=\"Kodilla Application\"]")).size() > 0)
-                .forEach(WebElement::click);
-
-        Thread.sleep(4000);
 
         result = driverTrello.findElements(By.xpath("//span")).stream()
                 .anyMatch(theSpan -> theSpan.getText().equals(taskName));
@@ -118,6 +111,7 @@ public class CrudAppTestSuite {
 
         Thread.sleep(4000);
 
+
     }
 
     @Test
@@ -125,8 +119,6 @@ public class CrudAppTestSuite {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
-        deleteTestTask(taskName);
-    }
 
-}
+        deleteTestTask(taskName);
 
